@@ -1,34 +1,67 @@
-# Sample Akka HTTP server
+# GraphQL API for a User Registry via Akka HTTP
 
-This is a sample Akka HTTP endpoint keeping an in-memory database of users that can be created and listed.
+This project is a simple example of a GraphQL API for a User Registry using Akka HTTP.
 
 Sources in the sample:
 
-* `QuickstartApp.java` -- contains the main method which bootstraps the application
-* `UserRoutes.java` -- Akka HTTP `routes` defining exposed endpoints
-* `UserRegistry.java` -- the actor which handles the registration requests
+* `Main.java` -- contains the main method which bootstraps the application
+* `GraphQLServer.java` -- GraphQL API using Akka HTTP
+* `UserRegistry.java` -- the actor which handles the user requests
 
-## Interacting with the sample
+## Running the project
 
-Start the sample:
+To run the project, execute the following command:
+
+```bash
+mvn exec:java -Dexec.mainClass="com.example.graphql.Main"
 ```
-mvn compile exec:exec
+
+The server will start at `http://localhost:8081/graphql`.
+
+## Querying the API
+
+> I recommend GraphQL Playground for testing the API. [Github Link](https://github.com/graphql/graphql-playground)
+
+Query all users:
+
+```graphql
+query {
+  allUsers {
+    name
+    age
+    countryOfResidence
+  }
+}
 ```
 
-The following requests can be made:
+Query a specific user by its ID:
 
-List all users:
+```graphql
+query {
+  user(name: "John") {
+    name
+    age
+    countryOfResidence
+  }
+}
+```
 
-    curl http://localhost:8080/users
+## Mutating the API
 
-Create a user:
+> I recommend GraphQL Playground for testing the API. [Github Link](https://github.com/graphql/graphql-playground)
 
-    curl -XPOST http://localhost:8080/users -d '{"name": "Liselott", "age": 32, "countryOfResidence": "Norway"}' -H "Content-Type:application/json"
+Create a new user:
 
-Get the details of one user:
+```graphql
+mutation {
+    createUser(name: "John", age: 30, countryOfResidence: "USA")
+}
+```
 
-    curl http://localhost:8080/users/Liselott
+Delete a user by its ID:
 
-Delete a user:
-
-    curl -XDELETE http://localhost:8080/users/Liselott
+```graphql
+mutation {
+    deleteUser(name: "John")
+}
+```
