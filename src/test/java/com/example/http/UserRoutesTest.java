@@ -1,4 +1,4 @@
-package com.example;
+package com.example.http;
 
 
 //#test-top
@@ -27,7 +27,7 @@ public class UserRoutesTest extends JUnitRouteTest {
 
     @BeforeClass
     public static void beforeClass() {
-        userRegistry = testkit.spawn(UserRegistry.create());
+        userRegistry = testkit.spawn(com.example.http.UserRegistry.create());
     }
 
     @Before
@@ -60,7 +60,7 @@ public class UserRoutesTest extends JUnitRouteTest {
                         "{\"name\": \"Kapi\", \"age\": 42, \"countryOfResidence\": \"jp\"}"))
                 .assertStatusCode(StatusCodes.CREATED)
                 .assertMediaType("application/json")
-                .assertEntity("{\"description\":\"User Kapi created.\"}");
+                .assertEntity("{\"description\":\"UserRegistry Kapi created.\"}");
     }
     //#testing-post
 
@@ -69,7 +69,7 @@ public class UserRoutesTest extends JUnitRouteTest {
         appRoute.run(HttpRequest.DELETE("/users/Kapi"))
                 .assertStatusCode(StatusCodes.OK)
                 .assertMediaType("application/json")
-                .assertEntity("{\"description\":\"User Kapi deleted.\"}");
+                .assertEntity("{\"description\":\"UserRegistry Kapi deleted.\"}");
 
     }
     //#set-up

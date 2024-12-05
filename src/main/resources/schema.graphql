@@ -1,0 +1,20 @@
+type Query {
+    allUsers: [User]
+    user(name: ID!): User
+}
+
+type User {
+    name: ID!
+    age: Int
+    countryOfResidence: String
+}
+
+type Mutation {
+    createUser(name: ID!, age: Int, countryOfResidence: String): User
+    deleteUser(name: ID!): Boolean
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+}

@@ -1,4 +1,4 @@
-package com.example;
+package com.example.http;
 
 import akka.actor.typed.ActorRef;
 import akka.actor.typed.Behavior;
@@ -6,8 +6,6 @@ import akka.actor.typed.javadsl.AbstractBehavior;
 import akka.actor.typed.javadsl.ActorContext;
 import akka.actor.typed.javadsl.Behaviors;
 import akka.actor.typed.javadsl.Receive;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.*;
 
@@ -44,7 +42,7 @@ public class UserRegistry extends AbstractBehavior<UserRegistry.Command>  {
   }
 
   public static Behavior<Command> create() {
-    return Behaviors.setup(UserRegistry::new);
+    return Behaviors.setup(com.example.http.UserRegistry::new);
   }
 
   @Override
@@ -66,7 +64,7 @@ public class UserRegistry extends AbstractBehavior<UserRegistry.Command>  {
 
   private Behavior<Command> onCreateUser(CreateUser command) {
     users.add(command.user());
-    command.replyTo().tell(new ActionPerformed(String.format("User %s created.", command.user().name())));
+    command.replyTo().tell(new ActionPerformed(String.format("UserRegistry %s created.", command.user().name())));
     return this;
   }
 
@@ -80,7 +78,7 @@ public class UserRegistry extends AbstractBehavior<UserRegistry.Command>  {
 
   private Behavior<Command> onDeleteUser(DeleteUser command) {
     users.removeIf(user -> user.name().equals(command.name()));
-    command.replyTo().tell(new ActionPerformed(String.format("User %s deleted.", command.name)));
+    command.replyTo().tell(new ActionPerformed(String.format("UserRegistry %s deleted.", command.name)));
     return this;
   }
 

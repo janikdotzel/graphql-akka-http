@@ -1,10 +1,9 @@
-package com.example;
+package com.example.http;
 
 import java.time.Duration;
-import java.util.Optional;
 import java.util.concurrent.CompletionStage;
 
-import com.example.UserRegistry.User;
+import com.example.http.UserRegistry.User;
 import akka.actor.typed.ActorRef;
 import akka.actor.typed.ActorSystem;
 import akka.actor.typed.Scheduler;
