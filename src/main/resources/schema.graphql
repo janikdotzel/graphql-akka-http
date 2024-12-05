@@ -10,7 +10,7 @@ type User {
 }
 
 type Mutation {
-    createUser(name: ID!, age: Int, countryOfResidence: String): User
+    createUser(name: ID!, age: Int!, countryOfResidence: String!): Boolean
     deleteUser(name: ID!): Boolean
 }
 

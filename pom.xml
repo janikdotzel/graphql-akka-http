@@ -109,7 +109,7 @@
                     <arguments>
                         <argument>-classpath</argument>
                         <classpath />
-                        <argument>com.example.http.QuickstartApp</argument>
+                        <argument>com.example.graphql.QuickstartApp</argument>
                     </arguments>
                 </configuration>
             </plugin>
