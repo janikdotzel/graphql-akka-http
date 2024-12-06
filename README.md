@@ -20,7 +20,8 @@ The server will start at `http://localhost:8081/graphql`.
 
 ## Querying the API
 
-> I recommend GraphQL Playground for testing the API. [Github Link](https://github.com/graphql/graphql-playground)
+> I used GraphQL Playground for testing the API. [Github Link](https://github.com/graphql/graphql-playground)
+> But you can use any other tool like Postman or Insomnia.
 
 Query all users:
 
@@ -48,8 +49,9 @@ query {
 
 ## Mutating the API
 
-> I recommend GraphQL Playground for testing the API. [Github Link](https://github.com/graphql/graphql-playground)
-
+> I used GraphQL Playground for testing the API. [Github Link](https://github.com/graphql/graphql-playground)
+> But you can use any other tool like Postman or Insomnia.
+> 
 Create a new user:
 
 ```graphql
