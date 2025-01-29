@@ -7,6 +7,7 @@ Sources in the sample:
 * `Main.java` -- contains the main method which bootstraps the application
 * `GraphQLServer.java` -- GraphQL API using Akka HTTP
 * `UserRegistry.java` -- the actor which handles the user requests
+* `GraphQLClient.java` -- a simple client to test the API
 
 ## Running the project
 
