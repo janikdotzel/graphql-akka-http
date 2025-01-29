@@ -13,7 +13,7 @@ Sources in the sample:
 To run the project, execute the following command:
 
 ```bash
-mvn exec:java -Dexec.mainClass="com.example.graphql.Main"
+mvn exec:java -Dexec.mainClass=com.example.graphql.Main
 ```
 
 The server will start at `http://localhost:8081/graphql`.

@@ -106,11 +106,6 @@
                 <version>3.0.0</version>
                 <configuration>
                     <executable>java</executable>
-                    <arguments>
-                        <argument>-classpath</argument>
-                        <classpath />
-                        <argument>com.example.graphql.QuickstartApp</argument>
-                    </arguments>
                 </configuration>
             </plugin>
         </plugins>
