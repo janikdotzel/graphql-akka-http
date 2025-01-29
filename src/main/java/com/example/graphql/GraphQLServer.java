@@ -110,6 +110,6 @@ public class GraphQLServer extends AllDirectives {
             .newServerAt("localhost", 8081)
             .bind(graphQLServer.createRoute());
 
-        System.out.println("GraphQL server online at graphql://localhost:8081/graphql");
+        System.out.println("GraphQL server online at http://localhost:8081/graphql");
     }
 }
